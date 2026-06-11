@@ -1,7 +1,5 @@
 const { useState, useEffect } = React;
-
-
-	// ═══════════════════════════════════════════════════════════════
+// ═══════════════════════════════════════════════════════════════
 // THE RECORD — app.js
 // All React component logic. Babel transpiles JSX in the browser
 // so this file deploys as-is to GitHub Pages (no build step).
