@@ -115,7 +115,7 @@ input, textarea, select { font-family: var(--sans); }
 }
 .alert-strip-stat-false  { color: #ff7b6b; }
 .alert-strip-stat-disp   { color: #ffd07b; }
-.alert-strip-right { margin-left: auto; color: #555; }
+.alert-strip-right { margin-left: auto; color: #222; }
 
 /* ── Nav ── */
 .nav {
@@ -263,7 +263,7 @@ input, textarea, select { font-family: var(--sans); }
 }
 .tag-released  { background: #2d6a4f; color: white; }
 .tag-partial   { background: #b8860b; color: white; }
-.tag-pending   { background: #555;    color: #ddd;  }
+.tag-pending   { background: #555;    color: #222;  }
 .tag-epstein   { background: #1a1a2e; color: #c8c8ff; }
 .tag-potus     { background: var(--red); color: white; }
 .tag-document  { background: #3a3a1a; color: #e8e0a0; }
