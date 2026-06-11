@@ -750,7 +750,8 @@ input, textarea, select { font-family: var(--sans); }
 const { useState, useEffect, useCallback } = React;
 
 // ─── CONFIG ───────────────────────────────────────────────────
-const STORAGE_KEY = "therecord_v3";
+// Bump storage key to avoid loading old localStorage during development
+const STORAGE_KEY = "therecord_v4";
 const CLAUDE_URL  = "https://api.anthropic.com/v1/messages";
 const MODEL       = "claude-sonnet-4-20250514";
 
