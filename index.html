@@ -92,7 +92,7 @@ input, textarea, select { font-family: var(--sans); }
 }
 .masthead-clock { text-align: right; }
 .masthead-clock-date {
-  font-family: var(--mono); 
+  font-family: var(--mono);
   font-size: 0.62rem;
   color: #888;
 }
@@ -749,7 +749,7 @@ input, textarea, select { font-family: var(--sans); }
 const { useState, useEffect, useCallback } = React;
 
 // ─── CONFIG ───────────────────────────────────────────────────
-const STORAGE_KEY = "therecord_v3";
+const STORAGE_KEY = "therecord_v4";
 const CLAUDE_URL  = "https://api.anthropic.com/v1/messages";
 const MODEL       = "claude-sonnet-4-20250514";
 
@@ -1531,6 +1531,7 @@ function App() {
         if (d.statements) setStatements(d.statements);
       }
     } catch { /* first run */ }
+    try { localStorage.removeItem("therecord_v3"); } catch {}
   }, []);
 
   useEffect(() => {
