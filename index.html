@@ -718,9 +718,10 @@ input, textarea, select { font-family: var(--sans); }
   line-height: 1.7;
   border-bottom: 1px solid #1a1a1a;
   padding: 2px 0;
+  color: #ffffff;
 }
-.log-ts     { color: #444; flex-shrink: 0; }
-.log-source { color: #555; flex-shrink: 0; }
+.log-ts     { color: #ffffff; flex-shrink: 0; }
+.log-source { color: #ffffff; flex-shrink: 0; }
 
 /* ── Responsive ── */
 @media (max-width: 700px) {
@@ -1479,7 +1480,7 @@ function DataAcquisition({ onFetchDocs, onFetchStatements }) {
           <div key={i} className="log-row">
             <span className="log-ts">{l.ts}</span>
             <span className="log-source">[{l.source}]</span>
-            <span style={{ color: LOG_COLOR[l.type] || "#888" }}>{l.msg}</span>
+            <span>{l.msg}</span>
           </div>
         ))}
       </div>
