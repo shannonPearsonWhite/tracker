@@ -23,8 +23,8 @@
   --amber:      #b8860b;
   --green:      #2d6a4f;
   --blue:       #2d5f8a;
-  --rule:       #f7af07;
-  --rule-light: #5ef307;
+  --rule:       #c8c0ae;
+  --rule-light: #e8e4da;
 
   --mono:  'IBM Plex Mono', monospace;
   --serif: 'Libre Baskerville', serif;
@@ -70,7 +70,7 @@ input, textarea, select { font-family: var(--sans); }
   font-size: 0.55rem;
   text-transform: uppercase;
   letter-spacing: 0.14em;
-  color: #ee0505;
+  color: #888;
   margin-top: 3px;
 }
 .masthead-ticker-wrap {
@@ -94,7 +94,7 @@ input, textarea, select { font-family: var(--sans); }
 .masthead-clock-date {
   font-family: var(--mono); 
   font-size: 0.62rem;
-  color: #f50505;
+  color: #888;
 }
 .masthead-clock-time {
   font-family: var(--mono);
@@ -106,7 +106,7 @@ input, textarea, select { font-family: var(--sans); }
 /* ── Alert strip ── */
 .alert-strip {
   background: var(--ink);
-  color: #f5ae07;
+  color: #f5f2eb;
   padding: 5px 28px;
   display: flex;
   align-items: center;
@@ -117,7 +117,7 @@ input, textarea, select { font-family: var(--sans); }
 }
 .alert-strip-live {
   background: var(--red);
-  color: rgb(238, 8, 8);
+  color: white;
   padding: 1px 7px;
   font-size: 0.58rem;
   font-weight: 700;
@@ -146,7 +146,7 @@ input, textarea, select { font-family: var(--sans); }
   background: transparent;
   border-bottom: 3px solid transparent;
   margin-bottom: -2px;
-  color: #f00505;
+  color: #888;
   transition: all 0.15s;
   display: flex;
   flex-direction: column;
@@ -162,7 +162,7 @@ input, textarea, select { font-family: var(--sans); }
 }
 .nav-btn-sub {
   font-size: 0.62rem;
-  color: #814a4a;
+  color: #bbb;
   letter-spacing: 0.06em;
   font-weight: 400;
 }
@@ -189,7 +189,7 @@ input, textarea, select { font-family: var(--sans); }
   font-size: 0.68rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: #000000;
+  color: #aaa;
 }
 .stat-grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 24px; }
 .stat-grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
@@ -200,7 +200,7 @@ input, textarea, select { font-family: var(--sans); }
   font-size: 0.72rem;
   text-transform: uppercase;
   letter-spacing: 0.12em;
-  color: #180909;
+  color: #888;
   margin-bottom: 10px;
 }
 
@@ -231,7 +231,7 @@ input, textarea, select { font-family: var(--sans); }
   font-size: 0.56rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: #1a0b0b;
+  color: #aaa;
   margin-bottom: 3px;
 }
 .form-input, .form-select, .form-textarea {
@@ -286,7 +286,7 @@ input, textarea, select { font-family: var(--sans); }
 .redact-bar-pct  {
   font-family: var(--mono);
   font-size: 0.7rem;
-  color: #160808;
+  color: #aaa;
   margin-left: 2px;
 }
 
@@ -718,10 +718,9 @@ input, textarea, select { font-family: var(--sans); }
   line-height: 1.7;
   border-bottom: 1px solid #1a1a1a;
   padding: 2px 0;
-  color: #ffffff;
 }
-.log-ts     { color: #ffffff; flex-shrink: 0; }
-.log-source { color: #ffffff; flex-shrink: 0; }
+.log-ts     { color: #444; flex-shrink: 0; }
+.log-source { color: #555; flex-shrink: 0; }
 
 /* ── Responsive ── */
 @media (max-width: 700px) {
@@ -750,8 +749,7 @@ input, textarea, select { font-family: var(--sans); }
 const { useState, useEffect, useCallback } = React;
 
 // ─── CONFIG ───────────────────────────────────────────────────
-// Bump storage key to avoid loading old localStorage during development
-const STORAGE_KEY = "therecord_v4";
+const STORAGE_KEY = "therecord_v3";
 const CLAUDE_URL  = "https://api.anthropic.com/v1/messages";
 const MODEL       = "claude-sonnet-4-20250514";
 
@@ -764,11 +762,19 @@ const SEED_DOCS = [
   { id:"d5", date:"2025-06-08", title:"Epstein Estate Financial Records — Probate Filing", pages:310, redactionPct:19, keywords:["finances","islands","trusts","beneficiaries"], source:"USVI Probate Court", batch:5, status:"released" },
   { id:"d6", date:"2026-01-14", title:"Maxwell Victim Affidavits — Third Tranche", pages:127, redactionPct:55, keywords:["victim testimony","named individuals","2002-2004"], source:"SDNY", batch:6, status:"partial" },
   { id:"d7", date:"2026-03-22", title:"DOJ Internal Memo: 2008 NPA Review", pages:6,   redactionPct:88, keywords:["NPA","DOJ HQ","Acosta","privilege"], source:"DOJ Inspector General", batch:7, status:"partial" },
-  { id:"d8", date:"2026-05-30", title:"Epstein Associate Network", pages:71, redactionPct:43, keywords:["network","associates","foreign nationals","intelligence"], source:"FBI / Senate FOIA", batch:8, status:"released" },
+  { id:"d8", date:"2026-05-30", title:"Epstein Associate Network — FBI Assessment", pages:71, redactionPct:43, keywords:["network","associates","foreign nationals","intelligence"], source:"FBI / Senate FOIA", batch:8, status:"released" },
   { id:"d9", date:"2026-04-03", title:"DOJ Response to Senate Epstein FOIA — Partial Compliance", pages:33, redactionPct:71, keywords:["DOJ","FOIA","Senate","compliance","redactions"], source:"Department of Justice", batch:9, status:"partial" },
   { id:"d10", date:"2026-05-18", title:"Epstein Victim Compensation Fund — Disbursement Records", pages:89, redactionPct:22, keywords:["victims","compensation","fund","settlements"], source:"USVI District Court", batch:10, status:"released" },
   { id:"d11", date:"2026-06-01", title:"CNN FOIA: White House Epstein Communications Log", pages:18, redactionPct:85, keywords:["White House","communications","Epstein","logs","FOIA"], source:"CNN FOIA Request / NARA", batch:11, status:"partial" },
   { id:"d12", date:"2026-06-08", title:"FBI Counterintelligence Assessment: Epstein Foreign Connections", pages:55, redactionPct:92, keywords:["FBI","counterintelligence","foreign","Israel","Saudi Arabia"], source:"Senate Intelligence Committee", batch:12, status:"partial" },
+  { id:"d13", date:"2026-06-09", title:"Maxwell Sentencing Memo — Unredacted Exhibits", pages:41, redactionPct:38, keywords:["Maxwell","sentencing","exhibits","victims","testimony"], source:"SDNY / Washington Post FOIA", batch:13, status:"released" },
+  { id:"d14", date:"2026-05-22", title:"Secret Service Epstein Visit Logs — Mar-a-Lago 1999-2004", pages:12, redactionPct:67, keywords:["Secret Service","Mar-a-Lago","visit logs","1999","2004"], source:"DHS FOIA / NYT", batch:14, status:"partial" },
+  { id:"d15", date:"2026-05-10", title:"Epstein Little Black Book — Annotated FBI Copy", pages:97, redactionPct:74, keywords:["black book","contacts","phone numbers","celebrities","politicians"], source:"FBI / MuckRock FOIA", batch:15, status:"partial" },
+  { id:"d16", date:"2026-04-28", title:"Palm Beach Police Report 2005 — Full Unredacted", pages:53, redactionPct:8, keywords:["Palm Beach PD","2005","investigation","witnesses","evidence"], source:"Palm Beach Police Dept.", batch:16, status:"released" },
+  { id:"d17", date:"2026-04-14", title:"CIA Briefing Memo: Epstein as Intelligence Asset", pages:3, redactionPct:96, keywords:["CIA","intelligence","asset","Mossad","disputed"], source:"CIA FOIA (heavily redacted)", batch:17, status:"partial" },
+  { id:"d18", date:"2026-03-30", title:"IRS Audit Trail: Epstein Foundation Financials 1996-2019", pages:188, redactionPct:29, keywords:["IRS","tax","foundation","finances","offshore"], source:"Senate Finance Committee", batch:18, status:"released" },
+  { id:"d19", date:"2026-03-15", title:"DOJ Office of Professional Responsibility: Acosta NPA Review", pages:22, redactionPct:51, keywords:["OPR","Acosta","NPA","misconduct","review"], source:"DOJ OPR / MSNBC FOIA", batch:19, status:"partial" },
+  { id:"d20", date:"2026-02-20", title:"Epstein Island Construction Permits and Visitor Manifests", pages:74, redactionPct:33, keywords:["Little St. James","island","permits","visitors","construction"], source:"USVI Government Records", batch:20, status:"released" },
 ];
 
 const SEED_STATEMENTS = [
@@ -786,6 +792,14 @@ const SEED_STATEMENTS = [
   { id:"s12", date:"2026-03-10", text:"Crime is at the lowest it has ever been in history because of me.", context:"Campaign-style rally in Michigan.", verdict:"FBI crime statistics do not support a historically unprecedented low; violent crime data shows mixed trends.", rating:"false", source:"AP Fact Check / FBI UCR" },
   { id:"s13", date:"2026-02-28", text:"I had nothing to do with the Epstein plea deal. That was all Acosta.", context:"Oval Office press spray.", verdict:"Investigators found no direct White House involvement but the claim omits broader DOJ oversight context.", rating:"disputed", source:"NBC News / DOJ Records" },
   { id:"s14", date:"2026-01-30", text:"The border is now 100% sealed. Nobody is getting through.", context:"Border security briefing at the White House.", verdict:"CBP data shows continued crossings; completely sealed is not supported by any official metric.", rating:"false", source:"Reuters / CBP Data" },
+  { id:"s15", date:"2026-06-10", text:"Nobody has done more for transparency than me. Nobody.", context:"White House Rose Garden, responding to press questions about Epstein file redactions.", verdict:"Multiple FOIA requests filed by press organizations remain unanswered or heavily redacted under current administration.", rating:"false", source:"Washington Post / FOIA logs" },
+  { id:"s16", date:"2026-05-28", text:"I declassified everything on Epstein months ago. Its all out there.", context:"Truth Social post, 11:47 PM.", verdict:"No executive declassification order for Epstein files has been published in the Federal Register or confirmed by NARA.", rating:"false", source:"NYT / National Archives" },
+  { id:"s17", date:"2026-05-05", text:"The stock market is the greatest in the history of the world because of my policies.", context:"Cabinet meeting, televised.", verdict:"Market performance reflects multiple economic factors; historians and economists dispute the superlative claim.", rating:"disputed", source:"MSNBC / Bloomberg" },
+  { id:"s18", date:"2026-04-18", text:"Maxwell told me nothing. I barely knew her.", context:"Oval Office press spray following new affidavit releases.", verdict:"Photographs and social records document repeated interactions at Mar-a-Lago and New York social events.", rating:"false", source:"NBC News / Getty Images archive" },
+  { id:"s19", date:"2026-03-22", text:"We have the safest border in 50 years. Drugs are down 100 percent.", context:"Rally in Phoenix, Arizona.", verdict:"DEA and CBP data do not support a 100 percent reduction in drug seizures; fentanyl seizures increased in Q1 2026.", rating:"false", source:"AP Fact Check / DEA data" },
+  { id:"s20", date:"2026-03-01", text:"I had nothing to do with Jeffrey Epstein. He was Clintons friend, not mine.", context:"Truth Social, responding to newly released Secret Service logs.", verdict:"Secret Service logs and multiple press accounts document Epstein visits to Mar-a-Lago during the 1990s and early 2000s.", rating:"false", source:"NYT / Secret Service FOIA" },
+  { id:"s21", date:"2026-02-14", text:"The FBI has been totally weaponized against me and my supporters.", context:"CPAC speech, National Harbor Maryland.", verdict:"No court has found institutional FBI bias; multiple Trump-era prosecutions were initiated by Trump-appointed officials.", rating:"disputed", source:"Reuters / DOJ records" },
+  { id:"s22", date:"2026-01-20", text:"Inflation is gone. Prices are coming down like you have never seen.", context:"One-year anniversary press conference.", verdict:"CPI data shows inflation moderated but prices remain elevated above 2020 baseline; no broad price decreases recorded.", rating:"false", source:"AP Fact Check / BLS CPI data" },
 ];
 
 const RATING_CFG = {
@@ -1481,7 +1495,7 @@ function DataAcquisition({ onFetchDocs, onFetchStatements }) {
           <div key={i} className="log-row">
             <span className="log-ts">{l.ts}</span>
             <span className="log-source">[{l.source}]</span>
-            <span>{l.msg}</span>
+            <span style={{ color: LOG_COLOR[l.type] || "#888" }}>{l.msg}</span>
           </div>
         ))}
       </div>
@@ -1540,7 +1554,7 @@ function App() {
   function addStatement(stmt){ setStatements(s => [stmt, ...s]); toast("Statement logged"); }
 
   async function fetchNewStatements() {
-    const existing = statements.slice(0,12).map(s => s.text.substring(0, 40)).join(" | ");
+    const existing = statements.slice(0,8).map(s => s.text.substring(0, 40)).join(" | ");
     try {
       const data = await callClaude(
         `You are a news intelligence system. Search for the latest notable or controversial statements by US President Trump. Return ONLY a raw JSON array (no markdown). Each object: {id,date,text,context,verdict,rating,source}. rating must be one of: false, disputed, unverified. Dates must be recent (2025–2026). Do not duplicate: ${existing}`,
@@ -1621,10 +1635,9 @@ function App() {
             key={p.id}
             className={`nav-btn${panel === p.id ? " active" : ""}`}
             onClick={() => setPanel(p.id)}
-            style={p.id === "acquisition" ? { color: "#000000" } : undefined}
           >
             {p.label}
-            <span className="nav-btn-sub" style={p.id === "acquisition" ? { color: "#000000" } : undefined}>{p.sub}</span>
+            <span className="nav-btn-sub">{p.sub}</span>
           </button>
         ))}
       </nav>
