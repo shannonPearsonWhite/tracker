@@ -46,9 +46,8 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # This tells GitHub to look in the root folder
           path: '.' 
       - name: Deploy to GitHub Pages
-        id: deployment
+        id:  
         uses: actions/deploy-pages@v4
 
