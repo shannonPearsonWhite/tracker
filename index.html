@@ -138,7 +138,7 @@ input, textarea, select { font-family: var(--sans); }
 }
 .nav-btn {
   font-family: var(--mono);
-  font-size: 0.68rem;
+  font-size: 0.78rem;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   padding: 10px 22px;
@@ -161,7 +161,7 @@ input, textarea, select { font-family: var(--sans); }
   font-weight: 600;
 }
 .nav-btn-sub {
-  font-size: 0.52rem;
+  font-size: 0.62rem;
   color: #bbb;
   letter-spacing: 0.06em;
   font-weight: 400;
@@ -179,14 +179,14 @@ input, textarea, select { font-family: var(--sans); }
 }
 .stat-card-num {
   font-family: var(--serif);
-  font-size: 2rem;
+  font-size: 2.4rem;
   font-weight: 700;
   line-height: 1;
   margin-bottom: 4px;
 }
 .stat-card-lbl {
   font-family: var(--mono);
-  font-size: 0.54rem;
+  font-size: 0.68rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: #aaa;
@@ -197,7 +197,7 @@ input, textarea, select { font-family: var(--sans); }
 /* ── Section label ── */
 .section-label {
   font-family: var(--mono);
-  font-size: 0.6rem;
+  font-size: 0.72rem;
   text-transform: uppercase;
   letter-spacing: 0.12em;
   color: #888;
@@ -265,10 +265,10 @@ input, textarea, select { font-family: var(--sans); }
 /* ── Tags ── */
 .tag {
   font-family: var(--mono);
-  font-size: 0.55rem;
+  font-size: 0.7rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  padding: 2px 7px;
+  padding: 3px 8px;
   font-weight: 600;
   border-radius: 1px;
 }
@@ -285,7 +285,7 @@ input, textarea, select { font-family: var(--sans); }
 .redact-segment  { height: 8px; border-radius: 1px; flex-shrink: 0; }
 .redact-bar-pct  {
   font-family: var(--mono);
-  font-size: 0.58rem;
+  font-size: 0.7rem;
   color: #aaa;
   margin-left: 2px;
 }
@@ -293,10 +293,10 @@ input, textarea, select { font-family: var(--sans); }
 /* ── Keyword chips ── */
 .kw-chip {
   font-family: var(--mono);
-  font-size: 0.54rem;
+  font-size: 0.65rem;
   background: var(--paper-dark);
   border: 1px solid var(--rule);
-  padding: 1px 6px;
+  padding: 2px 7px;
   border-radius: 1px;
   color: #666;
 }
@@ -429,7 +429,7 @@ input, textarea, select { font-family: var(--sans); }
 }
 .tl-card-headline {
   font-family: var(--serif);
-  font-size: 0.92rem;
+  font-size: 1.05rem;
   font-weight: 700;
   line-height: 1.3;
   margin-bottom: 6px;
@@ -477,7 +477,7 @@ input, textarea, select { font-family: var(--sans); }
 }
 .counter-lbl {
   font-family: var(--mono);
-  font-size: 0.52rem;
+  font-size: 0.65rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: #666;
@@ -534,13 +534,13 @@ input, textarea, select { font-family: var(--sans); }
 .stmt-chevron { font-size: 0.65rem; color: #ccc; }
 .stmt-quote {
   font-family: var(--serif);
-  font-size: 0.94rem;
+  font-size: 1.05rem;
   font-style: italic;
   line-height: 1.45;
   color: #222;
   margin-bottom: 4px;
 }
-.stmt-context { font-size: 0.76rem; color: #777; line-height: 1.5; }
+.stmt-context { font-size: 0.86rem; color: #777; line-height: 1.5; }
 .stmt-body {
   padding: 0 14px 14px;
   border-top: 1px solid rgba(0,0,0,0.05);
@@ -763,6 +763,10 @@ const SEED_DOCS = [
   { id:"d6", date:"2026-01-14", title:"Maxwell Victim Affidavits — Third Tranche", pages:127, redactionPct:55, keywords:["victim testimony","named individuals","2002-2004"], source:"SDNY", batch:6, status:"partial" },
   { id:"d7", date:"2026-03-22", title:"DOJ Internal Memo: 2008 NPA Review", pages:6,   redactionPct:88, keywords:["NPA","DOJ HQ","Acosta","privilege"], source:"DOJ Inspector General", batch:7, status:"partial" },
   { id:"d8", date:"2026-05-30", title:"Epstein Associate Network — FBI Assessment", pages:71, redactionPct:43, keywords:["network","associates","foreign nationals","intelligence"], source:"FBI / Senate FOIA", batch:8, status:"released" },
+  { id:"d9", date:"2026-04-03", title:"DOJ Response to Senate Epstein FOIA — Partial Compliance", pages:33, redactionPct:71, keywords:["DOJ","FOIA","Senate","compliance","redactions"], source:"Department of Justice", batch:9, status:"partial" },
+  { id:"d10", date:"2026-05-18", title:"Epstein Victim Compensation Fund — Disbursement Records", pages:89, redactionPct:22, keywords:["victims","compensation","fund","settlements"], source:"USVI District Court", batch:10, status:"released" },
+  { id:"d11", date:"2026-06-01", title:"CNN FOIA: White House Epstein Communications Log", pages:18, redactionPct:85, keywords:["White House","communications","Epstein","logs","FOIA"], source:"CNN FOIA Request / NARA", batch:11, status:"partial" },
+  { id:"d12", date:"2026-06-08", title:"FBI Counterintelligence Assessment: Epstein Foreign Connections", pages:55, redactionPct:92, keywords:["FBI","counterintelligence","foreign","Israel","Saudi Arabia"], source:"Senate Intelligence Committee", batch:12, status:"partial" },
 ];
 
 const SEED_STATEMENTS = [
@@ -774,29 +778,13 @@ const SEED_STATEMENTS = [
   { id:"s6", date:"2025-09-17", text:"There was no quid pro quo. None. Zero. Everyone said so.", context:"Press gaggle regarding foreign aid inquiry.", verdict:"Inspector General report noted 'unusual conditions' attached to aid release.", rating:"disputed", source:"Reuters / IG Report" },
   { id:"s7", date:"2026-02-04", text:"I never met Epstein. I don't know who that is.", context:"Oval Office, when asked about newly released flight logs.", verdict:"Multiple photographs, video, and prior on-record statements confirm a prior relationship.", rating:"false", source:"NBC News / archived records" },
   { id:"s8", date:"2026-04-11", text:"The Epstein files are totally clean. Nothing there.", context:"Truth Social, responding to latest document release.", verdict:"Released files contain significant redactions and reference unnamed co-conspirators.", rating:"unverified", source:"Truth Social / legal analysts" },
+  { id:"s9", date:"2026-06-01", text:"There was no pressure. The call was perfect. Everyone knows it.", context:"White House press gaggle, responding to questions about foreign aid conditions.", verdict:"Senate testimony and inspector general findings contradict the perfect call characterization.", rating:"false", source:"CNN / Senate Record" },
+  { id:"s10", date:"2026-05-15", text:"The DOJ is totally corrupt. They work for the radical left, not for America.", context:"Truth Social post following a federal indictment.", verdict:"No evidence supports institutional partisan bias; DOJ leadership was appointed by the current administration.", rating:"false", source:"Reuters" },
+  { id:"s11", date:"2026-04-20", text:"We have total cooperation on the Epstein files. Everything is being released.", context:"Press conference at Mar-a-Lago.", verdict:"Court records show ongoing redaction disputes and DOJ has resisted multiple FOIA requests.", rating:"disputed", source:"CNN / DOJ Records" },
+  { id:"s12", date:"2026-03-10", text:"Crime is at the lowest it has ever been in history because of me.", context:"Campaign-style rally in Michigan.", verdict:"FBI crime statistics do not support a historically unprecedented low; violent crime data shows mixed trends.", rating:"false", source:"AP Fact Check / FBI UCR" },
+  { id:"s13", date:"2026-02-28", text:"I had nothing to do with the Epstein plea deal. That was all Acosta.", context:"Oval Office press spray.", verdict:"Investigators found no direct White House involvement but the claim omits broader DOJ oversight context.", rating:"disputed", source:"NBC News / DOJ Records" },
+  { id:"s14", date:"2026-01-30", text:"The border is now 100% sealed. Nobody is getting through.", context:"Border security briefing at the White House.", verdict:"CBP data shows continued crossings; completely sealed is not supported by any official metric.", rating:"false", source:"Reuters / CBP Data" },
 ];
-   { id:"s9", date:"2026-06-01",
-  text:"There was no pressure. The call was perfect. Everyone knows it.",
-  context:"White House press gaggle, responding to questions about foreign aid conditions.",
-  verdict:"Senate testimony and inspector general findings contradict the 'perfect call' characterization.",
-  rating:"false",
-  source:"CNN / Senate Record" },
-
-{ id:"s10", date:"2026-05-15",
-  text:"The DOJ is totally corrupt. They work for the radical left, not for America.",
-  context:"Truth Social post following a federal indictment.",
-  verdict:"No evidence supports institutional partisan bias; DOJ leadership was appointed by the current administration.",
-  rating:"false",
-  source:"Reuters" },
-
-{ id:"s11", date:"2026-04-20",
-  text:"We have total cooperation on the Epstein files. Everything is being released.",
-  context:"Press conference at Mar-a-Lago.",
-  verdict:"Court records show ongoing redaction disputes and DOJ has resisted multiple FOIA requests.",
-  rating:"disputed",
-  source:"CNN / DOJ Records" },
-
-Yahoo Mail: Search, Organize, Conquer
 
 const RATING_CFG = {
   false:      { label:"FALSE",      color:"#c0392b", bg:"#fdf0ef" },
@@ -1669,3 +1657,5 @@ root.render(<App />);
 </script>
 </body>
 </html>
+
+Yahoo Mail: Search, Organize, Conquer
