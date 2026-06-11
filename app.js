@@ -5,7 +5,7 @@ const { useState, useEffect } = React;
 // so this file deploys as-is to GitHub Pages (no build step).
 // ═══════════════════════════════════════════════════════════════
 
-const { useState, useEffect, useCallback } = React;
+const { useState, useEffect } = React;
 
 // ─── CONFIG ───────────────────────────────────────────────────
 const STORAGE_KEY = "therecord_v3";
