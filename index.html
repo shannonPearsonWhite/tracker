@@ -1539,7 +1539,7 @@ function App() {
   function addStatement(stmt){ setStatements(s => [stmt, ...s]); toast("Statement logged"); }
 
   async function fetchNewStatements() {
-    const existing = statements.slice(0,8).map(s => s.text.substring(0, 40)).join(" | ");
+    const existing = statements.slice(0,12).map(s => s.text.substring(0, 40)).join(" | ");
     try {
       const data = await callClaude(
         `You are a news intelligence system. Search for the latest notable or controversial statements by US President Trump. Return ONLY a raw JSON array (no markdown). Each object: {id,date,text,context,verdict,rating,source}. rating must be one of: false, disputed, unverified. Dates must be recent (2025–2026). Do not duplicate: ${existing}`,
