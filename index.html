@@ -1619,9 +1619,10 @@ function App() {
             key={p.id}
             className={`nav-btn${panel === p.id ? " active" : ""}`}
             onClick={() => setPanel(p.id)}
+            style={p.id === "acquisition" ? { color: "#ffffff" } : undefined}
           >
             {p.label}
-            <span className="nav-btn-sub">{p.sub}</span>
+            <span className="nav-btn-sub" style={p.id === "acquisition" ? { color: "#ffffff" } : undefined}>{p.sub}</span>
           </button>
         ))}
       </nav>
